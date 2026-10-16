@@ -44,7 +44,7 @@ window.removeEventListener('resize', onScroll)
 <header class="nav" :class="{ scrolled }">
 <div class="container nav-inner">
 <a href="#home" class="brand" @click.prevent="go('home')">
-<img class="logo-img" :src="`${base}logos/${scrolled ? 'warriors' : 'ccs'}.png`" alt="CCS logo" />
+<img class="logo-img" :src="`${base}logos/ccs.png`" alt="CCS logo" />
 <span class="brand-text">
 <strong>College of Computer Studies</strong>
 <small>Central Philippine University</small>
@@ -71,10 +71,9 @@ display: flex; align-items: center;
 transition: background 0.35s, box-shadow 0.35s, height 0.35s;
 }
 .nav.scrolled {
-background: rgba(255, 255, 255, 0.96);
+background: rgba(12, 31, 35, 0.96);
 backdrop-filter: blur(10px);
-box-shadow: 0 4px 24px rgba(12, 31, 35, 0.1);
---link: var(--ink);
+box-shadow: 0 4px 24px rgba(12, 31, 35, 0.25);
 }
 .nav { --link: #fff; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
@@ -93,10 +92,7 @@ color: var(--link); transition: color 0.25s;
 content: ''; position: absolute; left: 14px; right: 14px; bottom: 4px; height: 2px;
 background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
 }
-.menu a:hover, .menu a.active { color: var(--gold-deep); }
-.nav:not(.scrolled) .menu a:hover,
-.nav:not(.scrolled) .menu a.active { color: var(--gold); }
-.menu a:hover::after, .menu a.active::after { transform: scaleX(1); }
+
 
 .short { display: none; }
 
