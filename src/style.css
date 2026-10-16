@@ -1,0 +1,69 @@
+:root {
+  --ink: #0f2a2e;
+  --teal-900: #0c1f23;
+  --teal-800: #17403f;
+  --teal-600: #2a6b66;
+  --gold: #fcae1e;
+  --gold-deep: #e69500;
+  --green: #6cbf2f;
+  --paper: #ffffff;
+  --mist: #f3f7f6;
+  --text: #3d4f52;
+  --muted: #7b8b8d;
+  --radius: 14px;
+  --nav-h: 76px;
+  --shadow: 0 10px 30px rgba(12, 31, 35, 0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Roboto', system-ui, sans-serif;
+  color: var(--text);
+  background: var(--paper);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: 'Roboto Slab', Georgia, serif; color: var(--teal-800); line-height: 1.2; }
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+
+.container { width: min(1180px, 100% - 40px); margin-inline: auto; }
+section { scroll-margin-top: var(--nav-h); }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--gold-deep);
+  margin-bottom: 10px;
+}
+.section-title { font-size: clamp(1.9rem, 4vw, 2.8rem); margin-bottom: 12px; }
+.section-sub { color: var(--muted); max-width: 620px; margin-inline: auto; }
+.center { text-align: center; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--gold); color: var(--teal-900);
+  font-weight: 700; padding: 15px 30px; border: 0; border-radius: 6px;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+  box-shadow: 0 8px 20px rgba(252, 174, 30, 0.35);
+}
+.btn:hover { transform: translateY(-3px); background: #ffbf45; box-shadow: 0 14px 28px rgba(252, 174, 30, 0.45); }
+
+/* scroll reveal */
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(.2,.7,.2,1); }
+.reveal.from-left { transform: translateX(-48px); }
+.reveal.from-right { transform: translateX(48px); }
+.reveal.from-zoom { transform: scale(0.88); }
+.reveal.from-fade { transform: none; }
+.reveal.in-view { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
